@@ -98,8 +98,8 @@ async function processOneTarget(target) {
         try {
             let imgUrls = await getImgUrlsByPage(_url);
             console.log('已经获取url')
-            await Promise.all(imgUrls.map(i => downLoadPics(i, dir)));
             db.markProcess(tag, i);
+            await Promise.all(imgUrls.map(i => downLoadPics(i, dir)));
         } catch (error) {
             console.error(new Date(), `爬取${tag},第${i}页时出现异常`, error);
         }
